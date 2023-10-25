@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SecondFragment">
+
+    <LinearLayout
+        android:id="@+id/staticLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="165dp"
+            android:layout_height="37dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Battery:" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="165dp"
+            android:layout_height="37dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Battery:" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="165dp"
+            android:layout_height="37dp"
+            android:layout_margin="10dp"
+            android:layout_weight="1"
+            android:text="Battery:" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/mLlayoutBottomButtons"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="400dp"
+                android:layout_height="78dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:text="Home"
+                />
+
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="400dp"
+                android:layout_height="78dp"
+                android:layout_margin="10dp"
+                android:layout_weight="1"
+                android:backgroundTint="@color/colorSelectedBlue"
+                android:textColor="@color/white"
+                android:text="Settings"
+                android:enabled="false"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
