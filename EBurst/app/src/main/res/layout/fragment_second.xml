@@ -19,7 +19,7 @@
             android:layout_height="37dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="Battery:" />
+            android:text="First line:" />
 
         <TextView
             android:id="@+id/textView2"
@@ -27,7 +27,7 @@
             android:layout_height="37dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="Battery:" />
+            android:text="Second line:" />
 
         <TextView
             android:id="@+id/textView3"
@@ -35,7 +35,7 @@
             android:layout_height="37dp"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            android:text="Battery:" />
+            android:text="Third line:" />
     </LinearLayout>
 
     <LinearLayout

@@ -40,18 +40,18 @@
 
             <TextView
                 android:id="@+id/textView2"
-                android:layout_width="173dp"
+                android:layout_width="0dp"
                 android:layout_height="41dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
-                android:text="Power Levels:" />
+                android:text="Power Level:" />
 
             <com.google.android.material.textfield.TextInputEditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
                 android:hint="Max. 2W"
-                android:inputType="phone" />
+                />
 
         </LinearLayout>
     </LinearLayout>
