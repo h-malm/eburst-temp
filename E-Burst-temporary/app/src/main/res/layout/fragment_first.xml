@@ -82,6 +82,59 @@
                 android:text="W"
                 android:textSize="17dp"/>
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth:" />
+
+        <TextView
+            android:id="@+id/pairedTV"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Paired To:" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btOn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BT On" />
+
+            <Button
+                android:id="@+id/btOff"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BT Off" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btSearch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BT Search" />
+
+            <Button
+                android:id="@+id/btPaired"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="BT Paired" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
