@@ -1,5 +1,6 @@
 package com.example.e_burst;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.snackbar.Snackbar;
@@ -19,10 +20,16 @@ import com.example.e_burst.databinding.ActivityMainBinding;
 import android.view.Menu;
 import android.view.MenuItem;
 
-public class MainActivity extends AppCompatActivity {
+import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
+import android.widget.Toast;
+import android.widget.Button;
+import java.util.Set;
 
+public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
