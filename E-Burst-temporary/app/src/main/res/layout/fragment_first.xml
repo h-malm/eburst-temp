@@ -23,6 +23,7 @@
                 android:layout_height="100dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo2_withbackgruond" />
+
         </androidx.cardview.widget.CardView>
 
         <LinearLayout
@@ -45,7 +46,10 @@
                 style="?android:attr/progressBarStyleHorizontal"
                 android:layout_width="200dp"
                 android:layout_height="49dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:layout_marginEnd="10dp"
+                android:progress="10"
+                android:progressTint="#7CFC00" />
 
         </LinearLayout>
 
@@ -81,60 +85,8 @@
                 android:layout_weight="1"
                 android:text="W"
                 android:textSize="17dp"/>
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Bluetooth:" />
-
-        <TextView
-            android:id="@+id/pairedTV"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Paired To:" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btOn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BT On" />
-
-            <Button
-                android:id="@+id/btOff"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BT Off" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/btSearch"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BT Search" />
-
-            <Button
-                android:id="@+id/btPaired"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="BT Paired" />
-        </LinearLayout>
-
     </LinearLayout>
 
     <LinearLayout
@@ -143,6 +95,42 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/test_button"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Test Button" />
+
+        <TextView
+            android:id="@+id/bt_read"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <Button
+            android:id="@+id/scan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth ON" />
+
+        <Button
+            android:id="@+id/off"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Bluetooth OFF" />
+
+        <Button
+            android:id="@+id/paired_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Show paired Devices" />
+
+        <Button
+            android:id="@+id/discover"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discover New Devices" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -164,6 +152,8 @@
                 android:textColor="@color/white"
                 app:cornerRadius="15dp" />
 
+
+
             <Button
                 android:id="@+id/button1"
                 android:layout_width="400dp"
@@ -171,10 +161,10 @@
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimaryLightBlue"
-                android:textColor="@color/white"
                 android:text="Settings"
                 android:textSize="19dp"
                 app:cornerRadius="15dp" />
+
         </LinearLayout>
 
     </LinearLayout>

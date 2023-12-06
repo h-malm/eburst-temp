@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.view.View;
 
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.WindowCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
@@ -43,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
+        ActivityCompat.requestPermissions(MainActivity.this, new String[]{android.Manifest.permission.BLUETOOTH_SCAN, android.Manifest.permission.BLUETOOTH_CONNECT}, 103);
     }
 
     @Override
