@@ -1,5 +1,7 @@
 package com.example.e_burst;
 
+import static androidx.core.content.ContextCompat.registerReceiver;
+
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
@@ -31,6 +33,7 @@ import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
@@ -72,6 +75,7 @@ public class FirstFragment extends Fragment {
                         // There are no request codes
                         Intent data = result.getData();
 //                                doSomeOperations();
+                        System.out.println("It did something");
 
                     }
                 }
@@ -210,20 +214,35 @@ public class FirstFragment extends Fragment {
 
 
                 // Check if the device is already discovering
-                if (ActivityCompat.checkSelfPermission(view.getContext(), Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
+                if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.BLUETOOTH_ADMIN)
+                !)PackageManager.PERMISSION_GRANTED){
+                    return;
+                }
+
                 if (bAdapter.isDiscovering()) {
                     System.out.println("discovering?");
                     bAdapter.cancelDiscovery();
                 } else {
                     if (bAdapter.isEnabled()) {
                         System.out.println("beforeStart");
-                        mBTArrayAdapter.clear(); // clear items
+                        mBTArrayAdapter.clear(); // Is this necessary?
                         bAdapter.startDiscovery();
 
                         System.out.println("afterStart");
-                        v.getContext().registerReceiver(blReceiver, new IntentFilter(BluetoothDevice.ACTION_FOUND));
+                        IntentFilter intentFilter = new IntentFilter();
+                        intentFilter.addAction(BluetoothDevice.ACTION_FOUND);
+                        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_STARTED);
+                        intentFilter.addAction(BluetoothAdapter.ACTION_DISCOVERY_FINISHED);
+                        if (getContext() != null) {
+                            System.out.println("Running through the 90's");
+                            registerReceiver(getContext(), blReceiver, intentFilter, ContextCompat.RECEIVER_NOT_EXPORTED);
+                            //getContext().registerReceiver( blReceiver,  intentFilter);
+
+                            //bAdapter.cancelDiscovery();
+                        }
                     }
                 }
             }
@@ -241,18 +260,30 @@ public class FirstFragment extends Fragment {
 
 
     final BroadcastReceiver blReceiver = new BroadcastReceiver() {
-        @SuppressLint("MissingPermission")
+        //@SuppressLint("MissingPermission")
+
         @Override
         public void onReceive(Context context, Intent intent) {
             System.out.println("onReceive");
             String action = intent.getAction();
-            if (BluetoothDevice.ACTION_FOUND.equals(action)) {
+            if (BluetoothAdapter.ACTION_DISCOVERY_FINISHED.equals(action)) {
+                System.out.println("D finished");
+            } else if (BluetoothAdapter.ACTION_DISCOVERY_STARTED.equals(action)) {
+                System.out.println("D Start");
+            } else if (BluetoothDevice.ACTION_FOUND.equals(action)) {
                 BluetoothDevice device = intent.getParcelableExtra(BluetoothDevice.EXTRA_DEVICE);
                 // add the name to the list
+                if (getContext() != null) {
+                    if (ActivityCompat.checkSelfPermission(getContext(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+                        return;
+                    }
+                }
                 mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
                 mBTArrayAdapter.notifyDataSetChanged();
                 System.out.println(mBTArrayAdapter);
             }
+
+
         }
     };
 

@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".SecondFragment">
 
     <LinearLayout
@@ -35,7 +36,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
             android:text="Theme"
-            android:textSize="17dp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/textView2"
@@ -45,7 +46,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Language:"
-            android:textSize="17dp"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/textView3"
@@ -55,7 +56,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Customer Support: phone or email"
-            android:textSize="17dp"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/textView4"
@@ -65,7 +66,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Controller number: *******"
-            android:textSize="17dp"/>
+            android:textSize="16sp"/>
 
         <TextView
             android:id="@+id/textView5"
@@ -75,7 +76,7 @@
             android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:text="Connection key:"
-            android:textSize="17dp"/>
+            android:textSize="16sp"/>
 
     </LinearLayout>
 
@@ -95,26 +96,26 @@
             <Button
                 android:id="@+id/button2"
                 android:layout_width="400dp"
-                android:layout_height="78dp"
+                android:layout_height="68dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorPrimaryLightBlue"
                 android:textColor="@color/white"
                 android:text="Home"
-                android:textSize="19dp"
+                android:textSize="16sp"
                 app:cornerRadius="15dp" />
 
             <Button
                 android:id="@+id/button1"
                 android:layout_width="400dp"
-                android:layout_height="78dp"
+                android:layout_height="68dp"
                 android:layout_margin="10dp"
                 android:layout_weight="1"
                 android:backgroundTint="@color/colorSelectedBlue"
                 android:textColor="@color/white"
                 android:enabled="false"
                 android:text="Settings"
-                android:textSize="19dp"
+                android:textSize="16sp"
                 app:cornerRadius="15dp" />
         </LinearLayout>
 
