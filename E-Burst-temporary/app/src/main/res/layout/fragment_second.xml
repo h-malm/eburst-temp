@@ -38,6 +38,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="@dimen/small_font_size"
             android:text="Power Curve Adjustment:" />
 
         <ImageView
@@ -52,10 +53,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
+            android:textSize="@dimen/small_font_size"
             android:text="Controller Info:" />
 
         <TextView
             android:id="@+id/textView8"
+            android:textSize="@dimen/small_font_size"
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:layout_margin="15dp"
@@ -64,7 +67,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:textSize="@dimen/small_font_size">
 
             <TextView
                 android:id="@+id/textView9"
@@ -72,9 +76,11 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_margin="5dp"
+                android:textSize="@dimen/small_font_size"
                 android:text="Language" />
             <Spinner
                 android:id="@+id/spinner"
+                android:textSize="@dimen/small_font_size"
                 android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
@@ -85,6 +91,7 @@
             android:id="@+id/connectButton"
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:textSize="@dimen/small_font_size"
             android:layout_gravity="center"
             android:backgroundTint="@color/colorPrimaryLightBlue"
             android:text="Connect"
@@ -98,6 +105,7 @@
             android:id="@+id/disconnectButton"
             android:layout_width="250dp"
             android:layout_height="50dp"
+            android:textSize="@dimen/small_font_size"
             android:layout_gravity="center"
             android:backgroundTint="@color/colorPrimaryLightBlue"
             android:text="View Connected Devices"
