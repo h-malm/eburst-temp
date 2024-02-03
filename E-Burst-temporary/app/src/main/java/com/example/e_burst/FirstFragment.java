@@ -217,8 +217,7 @@ public class FirstFragment extends Fragment {
                 if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.BLUETOOTH_SCAN) != PackageManager.PERMISSION_GRANTED) {
                     return;
                 }
-                if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.BLUETOOTH_ADMIN)
-                !)PackageManager.PERMISSION_GRANTED){
+                if (ActivityCompat.checkSelfPermission(v.getContext(), Manifest.permission.BLUETOOTH_ADMIN)!= PackageManager.PERMISSION_GRANTED){
                     return;
                 }
 
