@@ -41,12 +41,58 @@
             android:textSize="@dimen/small_font_size"
             android:text="Power Curve Adjustment:" />
 
-        <ImageView
-            android:id="@+id/imageView"
+        <com.example.e_burst.PowerCurve
+            android:id="@+id/powerCurve"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="200dp"
             android:layout_margin="5dp"
-            android:src="@tools:sample/avatars" />
+            android:background="#C4151111">
+
+            <View
+                android:id="@+id/point2"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="200px"
+                android:translationY="360px"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/point1"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="100px"
+                android:translationY="100px"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/point3"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="300px"
+                android:translationY="260px"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/point4"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="400px"
+                android:translationY="360px"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/point5"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="500px"
+                android:translationY="240px"
+                android:visibility="visible" />
+        </com.example.e_burst.PowerCurve>
 
         <TextView
             android:id="@+id/textView7"
