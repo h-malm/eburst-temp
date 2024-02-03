@@ -231,37 +231,25 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:orientation="horizontal">
-
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="400dp"
-                android:layout_height="68dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorSelectedBlue"
-                android:enabled="false"
-                android:text="Home"
-                android:textSize="16sp"
-                android:textColor="@color/white"
-                app:cornerRadius="15dp" />
-
-
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="400dp"
-                android:layout_height="68dp"
-                android:layout_margin="10dp"
-                android:layout_weight="1"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
-                android:text="Settings"
-                android:textColor="@color/white"
-                android:textSize="16sp"
-                app:cornerRadius="15dp" />
-
         </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/mLlayoutBottomButtons"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/button1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="end"
+                android:layout_margin="20dp"
+                app:shapeAppearanceOverlay="@style/RoundedShapeAppearance"
+                android:backgroundTint="@color/colorLightBlue"
+                android:tintMode="@color/black"
+                android:src="@drawable/settingsicon" />
+        </LinearLayout>
     </LinearLayout>
 
 </RelativeLayout>
