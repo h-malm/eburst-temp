@@ -22,7 +22,7 @@
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="130dp"
-                android:layout_height="60dp"
+                android:layout_height="80dp"
                 android:layout_gravity="center"
                 android:src="@drawable/logo2_withbackgruond" />
 
@@ -182,13 +182,17 @@
 
         android:src="@android:drawable/ic_input_add"
         app:shapeAppearanceOverlay="@style/RoundedShapeAppearance" />
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_margin="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorLightBlue"
         android:src="@drawable/homescreen_icon_white"
         app:shapeAppearanceOverlay="@style/RoundedShapeAppearance" />
