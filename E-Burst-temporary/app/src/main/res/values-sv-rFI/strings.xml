@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Inställnignar</string>
+    <string name="first_fragment_label">Det här är sidan ett</string>
+    <string name="second_fragment_label">Det här är sida två</string>
+    <string name="next">Nästa</string>
+    <string name="previous">Tillbaka</string>
+    <string name="lorem_ipsum">Någonting</string>
+    <string name="battery_level">Batterinivå</string>
+    <string name="controller_info">Information om kontroller</string>
+    <string name="language">Språk</string>
+    <string name="connect">Koppla</string>
+    <string name="view_connected_devices">Visa kopplade apparater</string>
+    <string name="bluetooth_off">Stäng av Bluetooth</string>
+    <string name="current_speed">Nuvarande Hastighet</string>
+</resources>
