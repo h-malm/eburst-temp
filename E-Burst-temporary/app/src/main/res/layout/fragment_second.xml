@@ -66,47 +66,47 @@
             >
             <View
                 android:id="@+id/point1"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:translationX="100px"
-                android:translationY="100px"
+                android:translationX="20dp"
+                android:translationY="180dp"
                 android:visibility="visible" />
 
             <View
                 android:id="@+id/point2"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:translationX="350px"
-                android:translationY="360px"
+                android:translationX="100dp"
+                android:translationY="90dp"
                 android:visibility="visible" />
 
             <View
                 android:id="@+id/point3"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:translationX="650px"
-                android:translationY="260px"
+                android:translationX="180dp"
+                android:translationY="70dp"
                 android:visibility="visible" />
 
             <View
                 android:id="@+id/point4"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:translationX="950px"
-                android:translationY="360px"
+                android:translationX="260dp"
+                android:translationY="130dp"
                 android:visibility="visible" />
 
             <View
                 android:id="@+id/point5"
-                android:layout_width="50px"
-                android:layout_height="50px"
+                android:layout_width="20dp"
+                android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:translationX="1200px"
-                android:translationY="240px"
+                android:translationX="320dp"
+                android:translationY="160dp"
                 android:visibility="visible" />
         </com.example.e_burst.PowerCurve>
 
