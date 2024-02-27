@@ -165,9 +165,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/languageTextView" />
 
-        <!-- Disconnect Button -->
+        <!-- View paired Button -->
         <Button
-            android:id="@+id/disconnectButton"
+            android:id="@+id/pairedButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/small_font_size"
@@ -197,7 +197,7 @@
         android:focusable="true" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button1"
+        android:id="@+id/homebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
@@ -207,8 +207,17 @@
         android:layout_marginEnd="20dp"
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/colorLightBlue"
-        android:src="@drawable/homescreen_icon_black"
+        android:src="@drawable/homescreen_icon_white"
         android:tintMode="@color/black"
         app:shapeAppearanceOverlay="@style/RoundedShapeAppearance" />
+
+    <ListView
+        android:id="@+id/devicesListView"
+        android:layout_width="wrap_content"
+        android:layout_height="500dp"
+        android:layout_marginTop="100dp"
+        android:background="@color/colorLightBlue"
+        android:choiceMode="singleChoice"
+        android:visibility="invisible" />
 
 </RelativeLayout>

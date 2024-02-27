@@ -66,6 +66,7 @@ public class FirstFragment extends Fragment {
 
     BluetoothAdapter bAdapter;
 
+    /* not used
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
             new ActivityResultContracts.StartActivityForResult(),
             new ActivityResultCallback<ActivityResult>() {
@@ -81,6 +82,8 @@ public class FirstFragment extends Fragment {
                 }
             });
 
+     */
+
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
@@ -90,7 +93,7 @@ public class FirstFragment extends Fragment {
 
         bAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bAdapter == null) {
-            System.out.println("1");
+            System.out.println("Device doesn't support Bluetooth");
             // Device doesn't support Bluetooth
         }
 
@@ -109,9 +112,13 @@ public class FirstFragment extends Fragment {
         mBtRead = binding.btRead;
         mBluetoothStatus = binding.btStatus;
 
+        /* in settings
         mDevicesListView = binding.devicesListView;
         mDevicesListView.setAdapter(mBTArrayAdapter); // assign model to view
         mDevicesListView.setOnItemClickListener(mDeviceClickListener);
+
+         */
+
 
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
@@ -133,7 +140,7 @@ public class FirstFragment extends Fragment {
         };
 
 
-        binding.button1.setOnClickListener(new View.OnClickListener() {
+        binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(FirstFragment.this)
@@ -142,14 +149,7 @@ public class FirstFragment extends Fragment {
         });
 
 
-        binding.testButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-
-            }
-        });
-
+        /* not used (used needs to have bluetooth on and have paired to controller in settings)
         binding.scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -169,13 +169,15 @@ public class FirstFragment extends Fragment {
                     System.out.println("Bluetooth is already on");
                 }
             }
-        });
+        });*/
 
+        //
         binding.off.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-
+                if (mConnectedThread!=null) mConnectedThread.cancel();
+                /* not used (change to disconnect)
                 if (bAdapter.isEnabled()) {
                     if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
 
@@ -185,10 +187,11 @@ public class FirstFragment extends Fragment {
                     System.out.println("Turning Bluetooth Off");
                 } else {
                     System.out.println("Bluetooth is already off");
-                }
+                }*/
             }
         });
 
+        /* in setting
         binding.pairedBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,8 +209,9 @@ public class FirstFragment extends Fragment {
 
                 }
             }
-        });
+        });*/
 
+        /* not used
         binding.discover.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -245,7 +249,7 @@ public class FirstFragment extends Fragment {
                     }
                 }
             }
-        });
+        });*/
 
     }
 
@@ -257,7 +261,7 @@ public class FirstFragment extends Fragment {
         binding.progressBar3.setProgress(progress);
     }
 
-
+    /* not used
     final BroadcastReceiver blReceiver = new BroadcastReceiver() {
         //@SuppressLint("MissingPermission")
 
@@ -284,7 +288,7 @@ public class FirstFragment extends Fragment {
 
 
         }
-    };
+    };*/
 
     private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
         //mDevicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -357,11 +361,13 @@ public class FirstFragment extends Fragment {
         return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
     }
 
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         binding = null;
-        getView().getContext().unregisterReceiver(blReceiver);
+
+        //getView().getContext().unregisterReceiver(blReceiver);
     }
 
 }
