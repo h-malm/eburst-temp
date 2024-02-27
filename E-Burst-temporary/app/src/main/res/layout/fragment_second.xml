@@ -64,16 +64,6 @@
             android:background="@color/colorLightBlue"
 
             >
-
-            <View
-                android:id="@+id/point2"
-                android:layout_width="50px"
-                android:layout_height="50px"
-                android:background="@drawable/circle"
-                android:translationX="200px"
-                android:translationY="360px"
-                android:visibility="visible" />
-
             <View
                 android:id="@+id/point1"
                 android:layout_width="50px"
@@ -84,11 +74,20 @@
                 android:visibility="visible" />
 
             <View
+                android:id="@+id/point2"
+                android:layout_width="50px"
+                android:layout_height="50px"
+                android:background="@drawable/circle"
+                android:translationX="350px"
+                android:translationY="360px"
+                android:visibility="visible" />
+
+            <View
                 android:id="@+id/point3"
                 android:layout_width="50px"
                 android:layout_height="50px"
                 android:background="@drawable/circle"
-                android:translationX="300px"
+                android:translationX="650px"
                 android:translationY="260px"
                 android:visibility="visible" />
 
@@ -97,7 +96,7 @@
                 android:layout_width="50px"
                 android:layout_height="50px"
                 android:background="@drawable/circle"
-                android:translationX="400px"
+                android:translationX="950px"
                 android:translationY="360px"
                 android:visibility="visible" />
 
@@ -106,7 +105,7 @@
                 android:layout_width="50px"
                 android:layout_height="50px"
                 android:background="@drawable/circle"
-                android:translationX="500px"
+                android:translationX="1200px"
                 android:translationY="240px"
                 android:visibility="visible" />
         </com.example.e_burst.PowerCurve>
