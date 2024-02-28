@@ -2,7 +2,39 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.EBurst" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Action button background (somehow, both are needed) -->
+        <item name="floatingActionButtonPrimaryStyle">@color/colorLightBlue</item>
+        <item name="colorAccent">@color/colorLightBlue</item>
+
+        <!-- icon color -->
+        <item name="android:tint">@color/colorSelectedBlue</item>
+
+        <!--   background of buttons -->
+        <item name="colorPrimary">@color/colorPrimaryLightBlue</item>
+
+        <!--   A darker variant of the primary color, used for
+               the status bar (on Android 5.0+) and contextual app bars. -->
+        <item name="colorPrimaryDark">@color/white</item>
+
+        <item name="colorOnPrimary">@color/lightGray</item>
+
+        <!-- card background color -->
+        <item name="cardViewStyle">@style/MyStyle.Cardview.Orange</item>
+
+        <item name="android:statusBarColor">@color/lightGray</item>
+    </style>
+
+    <style name="MyStyle.Cardview.Orange" parent="CardView">
+        <item name="cardBackgroundColor">@color/colorLightBlue</item>
+    </style>
+
+    <style name="MyTextView" parent="@android:style/TextAppearance.Small">
+        <item name="android:background">@color/lightGray</item>
+    </style>
+
+    <style name="PowerView" parent="@android:style/TextAppearance.Small">
+        <item name="android:background">@color/colorEvenLighterBlue</item>
     </style>
 
     <style name="Theme.EBurst" parent="Base.Theme.EBurst" />

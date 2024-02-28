@@ -52,7 +52,7 @@ public class PowerCurve extends FrameLayout {
         graph = this;
         graph.setOnDragListener(dragListener);
 
-        mPaint.setColor(Color.BLUE);
+        mPaint.setColor(Color.GRAY);
         mPaint.setStrokeWidth(10);
 
         int[] x = new int[5];
