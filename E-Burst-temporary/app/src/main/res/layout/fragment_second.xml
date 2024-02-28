@@ -68,7 +68,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:backgroundTint="@color/buttonGray"
                 android:translationX="20dp"
                 android:translationY="180dp"
                 android:visibility="visible" />
@@ -78,7 +78,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:backgroundTint="@color/buttonGray"
                 android:translationX="100dp"
                 android:translationY="90dp"
                 android:visibility="visible" />
@@ -88,7 +88,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:backgroundTint="@color/buttonGray"
                 android:translationX="180dp"
                 android:translationY="70dp"
                 android:visibility="visible" />
@@ -98,7 +98,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:backgroundTint="@color/buttonGray"
                 android:translationX="260dp"
                 android:translationY="130dp"
                 android:visibility="visible" />
@@ -108,7 +108,7 @@
                 android:layout_width="20dp"
                 android:layout_height="20dp"
                 android:background="@drawable/circle"
-                android:backgroundTint="@color/colorPrimaryLightBlue"
+                android:backgroundTint="@color/buttonGray"
                 android:translationX="320dp"
                 android:translationY="160dp"
                 android:visibility="visible" />
