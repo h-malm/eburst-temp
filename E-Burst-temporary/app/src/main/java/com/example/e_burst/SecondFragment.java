@@ -128,7 +128,6 @@ public class SecondFragment extends Fragment {
 
 
     private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
-        //mDevicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -138,11 +137,7 @@ public class SecondFragment extends Fragment {
                 return;
             }
 
-            //mBluetoothStatus.setText("Connecting…");
-            // Get the device MAC address, which is the last 17 chars in the View
             String info = ((TextView) view).getText().toString();
-            //final String address = info.substring(info.length() - 17);
-            //final String name = info.substring(0, info.length() - 17);
 
             if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
 
@@ -150,66 +145,8 @@ public class SecondFragment extends Fragment {
             }
             btController.btConnect(info);
 
-            /*
-            // Spawn a new thread to avoid blocking the GUI one
-            new Thread() {
-                @Override
-                public void run() {
-                    boolean fail = false;
-
-                    BluetoothDevice device = bAdapter.getRemoteDevice(address);
-
-                    try {
-                        mBTSocket = createBluetoothSocket(device);
-                    } catch (IOException e) {
-                        fail = true;
-                    }
-                    // Establish the Bluetooth socket connection.
-                    try {
-                        if (ActivityCompat.checkSelfPermission(view.getContext(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-
-                            return;
-                        }
-                        mBTSocket.connect();
-                    } catch (IOException e) {
-                        try {
-                            fail = true;
-                            mBTSocket.close();
-                            mHandler.obtainMessage(CONNECTING_STATUS, -1, -1)
-                                    .sendToTarget();
-                        } catch (IOException e2) {
-                            //insert code to deal with this
-                        }
-                    }
-                    if (!fail) {
-                        mConnectedThread = new ConnectedThread(mBTSocket, mHandler);
-                        mConnectedThread.start();
-
-                        mHandler.obtainMessage(CONNECTING_STATUS, 1, -1, name)
-                                .sendToTarget();
-                    }
-                }
-            }.start();*/
         }
     };
-/*
-    private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
-        try {
-            final Method m = device.getClass().getMethod("createInsecureRfcommSocketToServiceRecord", UUID.class);
-            return (BluetoothSocket) m.invoke(device, BT_MODULE_UUID);
-        } catch (Exception e) {
-            //Log.e(TAG, "Could not create Insecure RFComm Connection",e);
-        }
-        if (ActivityCompat.checkSelfPermission(getView().getContext(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            //
-            return null;
-        }
-        return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
-    }*/
-
-
-
-
 
 
     @Override

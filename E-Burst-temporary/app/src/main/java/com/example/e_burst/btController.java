@@ -67,6 +67,7 @@ public class btController {
 
         mBluetoothStatus.setText("Connecting…");
 
+        // Get the device MAC address, which is the last 17 chars in the View
         final String address = info.substring(info.length() - 17);
         final String name = info.substring(0, info.length() - 17);
 
@@ -88,11 +89,7 @@ public class btController {
                 }
                 // Establish the Bluetooth socket connection.
                 try {
-                        /* checks permission before calling
-                        if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
 
-                            return;
-                        }*/
 
                     mBTSocket.connect();
                     } catch (IOException e) {
@@ -125,11 +122,7 @@ public class btController {
         } catch (Exception e) {
             //Log.e(TAG, "Could not create Insecure RFComm Connection",e);
         }
-        /* checks permission before calling
-        if (ActivityCompat.checkSelfPermission(getView().getContext(), Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
-            //
-            return null;
-        }*/
+
         return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
     }
 
