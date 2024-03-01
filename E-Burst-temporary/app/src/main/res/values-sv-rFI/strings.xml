@@ -13,4 +13,6 @@
     <string name="view_connected_devices">Visa kopplade apparater</string>
     <string name="bluetooth_off">Stäng av Bluetooth</string>
     <string name="current_speed">Nuvarande Hastighet</string>
+    <string name="distance_travelled">Färdat Avstånd:</string>
+    <string name="reset">Nollställ</string>
 </resources>

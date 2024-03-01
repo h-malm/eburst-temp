@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,8 @@ import com.example.e_burst.databinding.FragmentSecondBinding;
 
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
@@ -33,6 +36,8 @@ public class SecondFragment extends Fragment   {
     private ArrayAdapter<String> mBTArrayAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private ListView mDevicesListView;
+
+    private Spinner spinspin;
 
     @Override
     public View onCreateView(
@@ -53,6 +58,23 @@ public class SecondFragment extends Fragment   {
         mDevicesListView = binding.devicesListView;
         mDevicesListView.setAdapter(mBTArrayAdapter); // assign model to view
         //mDevicesListView.setOnItemClickListener(mDeviceClickListener);
+
+
+        //List for spinner item (Something else eventually)
+        final List<String> list = new ArrayList<>();
+        list.add("English");
+        list.add("Svenska");
+        list.add("Suomi");
+
+
+        //Creates Spinner adapter
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(view.getContext(),
+                android.R.layout.simple_list_item_1, list);
+        //adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        spinspin = binding.spinner;
+        spinspin.setAdapter(adapter);
 
         mBluetoothStatus = binding.textView8;
 
