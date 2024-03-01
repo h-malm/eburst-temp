@@ -1,8 +1,9 @@
 package com.example.e_burst;
 
+import static com.example.e_burst.btController.bAdapter;
+
 import android.Manifest;
 import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -26,13 +27,11 @@ import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;
 
-public class SecondFragment extends Fragment   {
+public class SecondFragment extends Fragment {
 
     private FragmentSecondBinding binding;
 
-    private TextView mBluetoothStatus;
     private ArrayAdapter<String> mBTArrayAdapter;
     private Set<BluetoothDevice> pairedDevices;
     private ListView mDevicesListView;
@@ -57,7 +56,7 @@ public class SecondFragment extends Fragment   {
 
         mDevicesListView = binding.devicesListView;
         mDevicesListView.setAdapter(mBTArrayAdapter); // assign model to view
-        //mDevicesListView.setOnItemClickListener(mDeviceClickListener);
+        mDevicesListView.setOnItemClickListener(mDeviceClickListener);
 
 
         //List for spinner item (Something else eventually)
@@ -76,7 +75,7 @@ public class SecondFragment extends Fragment   {
         spinspin = binding.spinner;
         spinspin.setAdapter(adapter);
 
-        mBluetoothStatus = binding.textView8;
+        btController.mBluetoothStatus = binding.textView8;
 
         binding.homebutton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -86,7 +85,25 @@ public class SecondFragment extends Fragment   {
             }
         });
 
-        /*
+        binding.connectButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (!bAdapter.isEnabled()) {
+                    return;
+                }
+
+                /*
+                if connected
+                btController.btDisconnect();
+                else
+                */
+                if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+                    return;
+                }
+                btController.btConnect(btController.lastConnected);
+            }
+        });
         binding.pairedButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -103,25 +120,37 @@ public class SecondFragment extends Fragment   {
                         mBTArrayAdapter.add(device.getName() + "\n" + device.getAddress());
 
                 }
+                mDevicesListView.setVisibility(View.VISIBLE);
             }
         });
     }
+
+
 
     private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
         //mDevicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
+            mDevicesListView.setVisibility(View.INVISIBLE);
+
             if (!bAdapter.isEnabled()) {
                 return;
             }
 
-            mBluetoothStatus.setText("Connecting…");
+            //mBluetoothStatus.setText("Connecting…");
             // Get the device MAC address, which is the last 17 chars in the View
             String info = ((TextView) view).getText().toString();
-            final String address = info.substring(info.length() - 17);
-            final String name = info.substring(0, info.length() - 17);
+            //final String address = info.substring(info.length() - 17);
+            //final String name = info.substring(0, info.length() - 17);
 
+            if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+                return;
+            }
+            btController.btConnect(info);
+
+            /*
             // Spawn a new thread to avoid blocking the GUI one
             new Thread() {
                 @Override
@@ -160,10 +189,10 @@ public class SecondFragment extends Fragment   {
                                 .sendToTarget();
                     }
                 }
-            }.start();
+            }.start();*/
         }
     };
-
+/*
     private BluetoothSocket createBluetoothSocket(BluetoothDevice device) throws IOException {
         try {
             final Method m = device.getClass().getMethod("createInsecureRfcommSocketToServiceRecord", UUID.class);
@@ -178,7 +207,10 @@ public class SecondFragment extends Fragment   {
         return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
     }*/
 
-    }
+
+
+
+
 
     @Override
     public void onDestroyView() {

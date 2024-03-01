@@ -2,51 +2,26 @@ package com.example.e_burst;
 
 import static androidx.core.content.ContextCompat.registerReceiver;
 
-import android.Manifest;
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.bluetooth.BluetoothAdapter;
-import android.bluetooth.BluetoothDevice;
-import android.bluetooth.BluetoothSocket;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
+import static com.example.e_burst.btController.bAdapter;
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.AdapterView.OnItemClickListener;
 
-import androidx.activity.result.ActivityResult;
-import androidx.activity.result.ActivityResultCallback;
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.e_burst.databinding.FragmentFirstBinding;
 
-import java.io.IOException;
-import java.lang.reflect.Method;
-import java.nio.charset.StandardCharsets;
-import java.util.Set;
-import java.util.UUID;
-
 public class FirstFragment extends Fragment {
+    private FragmentFirstBinding binding;
 
+    /*
     private static final UUID BT_MODULE_UUID = UUID.fromString("00001101-0000-1000-8000-00805F9B34FB"); // "random" unique identifier
 
     private FragmentFirstBinding binding;
@@ -65,6 +40,8 @@ public class FirstFragment extends Fragment {
     private final static int CONNECTING_STATUS = 3; // used in bluetooth handler to identify message status
 
     BluetoothAdapter bAdapter;
+
+     */
 
     /* not used
     ActivityResultLauncher<Intent> someActivityResultLauncher = registerForActivityResult(
@@ -90,12 +67,13 @@ public class FirstFragment extends Fragment {
             Bundle savedInstanceState
     ) {
 
-
+        /*
         bAdapter = BluetoothAdapter.getDefaultAdapter();
         if (bAdapter == null) {
             System.out.println("Device doesn't support Bluetooth");
             // Device doesn't support Bluetooth
-        }
+        }*/
+        btController.setBluetoothAdapter();
 
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -106,11 +84,11 @@ public class FirstFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mBTArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1);
+        //mBTArrayAdapter = new ArrayAdapter<String>(view.getContext(), android.R.layout.simple_list_item_1);
 
 
-        mBtRead = binding.btRead;
-        mBluetoothStatus = binding.btStatus;
+        btController.mBtRead = binding.btRead;
+        btController.mBluetoothStatus = binding.btStatus;
 
         /* in settings
         mDevicesListView = binding.devicesListView;
@@ -118,8 +96,8 @@ public class FirstFragment extends Fragment {
         mDevicesListView.setOnItemClickListener(mDeviceClickListener);
 
          */
-
-
+        btController.setBtHandler();
+/*
         mHandler = new Handler(Looper.getMainLooper()) {
             @Override
             public void handleMessage(Message msg) {
@@ -137,19 +115,19 @@ public class FirstFragment extends Fragment {
                         mBluetoothStatus.setText("Connection Failed");
                 }
             }
-        };
-
+        };*/
 
         binding.settingsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment);
             }
         });
 
 
-        /* not used (used needs to have bluetooth on and have paired to controller in settings)
+        /* not used (used needs to have bluetooth on and have paired to controller in device settings)
         binding.scan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -176,7 +154,22 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                if (mConnectedThread!=null) mConnectedThread.cancel();
+                if (!bAdapter.isEnabled()) {
+                    return;
+                }
+
+                /*
+                if connected
+                btController.btDisconnect();
+                else
+                */
+                if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
+
+                    return;
+                }
+                btController.btConnect(btController.lastConnected);
+
+                //if (mConnectedThread!=null) mConnectedThread.cancel();
                 /* not used (change to disconnect)
                 if (bAdapter.isEnabled()) {
                     if (ActivityCompat.checkSelfPermission(view.getContext(), android.Manifest.permission.BLUETOOTH_CONNECT) != PackageManager.PERMISSION_GRANTED) {
@@ -251,6 +244,7 @@ public class FirstFragment extends Fragment {
             }
         });*/
 
+
     }
 
     public void toast(CharSequence text) {
@@ -290,6 +284,7 @@ public class FirstFragment extends Fragment {
         }
     };*/
 
+    /*
     private AdapterView.OnItemClickListener mDeviceClickListener = new AdapterView.OnItemClickListener() {
         //mDevicesListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
         @Override
@@ -359,7 +354,9 @@ public class FirstFragment extends Fragment {
             return null;
         }
         return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
-    }
+    }*/
+
+
 
 
     @Override
