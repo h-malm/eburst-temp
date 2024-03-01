@@ -20,12 +20,12 @@
         <item name="colorOnPrimary">@color/lightGray</item>
 
         <!-- card background color -->
-        <item name="cardViewStyle">@style/MyStyle.Cardview.Orange</item>
+        <item name="cardViewStyle">@style/cardBackground</item>
 
         <item name="android:statusBarColor">@color/lightGray</item>
     </style>
 
-    <style name="MyStyle.Cardview.Orange" parent="CardView">
+    <style name="cardBackground" parent="CardView">
         <item name="cardBackgroundColor">@color/colorLightBlue</item>
     </style>
 
@@ -35,6 +35,14 @@
 
     <style name="PowerView" parent="@android:style/TextAppearance.Small">
         <item name="android:background">@color/colorEvenLighterBlue</item>
+    </style>
+
+    <style name="DistanceTravelled" parent="@android:style/TextAppearance.Small">
+        <item name="android:background">@color/lightGray</item>
+    </style>
+
+    <style name="resetButton" parent="@android:style/TextAppearance.Small">
+        <item name="android:backgroundTint">@color/colorLightBlue</item>
     </style>
 
     <style name="Theme.EBurst" parent="Base.Theme.EBurst" />

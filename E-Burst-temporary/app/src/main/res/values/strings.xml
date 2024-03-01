@@ -16,4 +16,7 @@
     <string name="km_h" translatable="false">km/h</string>
     <string name="_10" translatable="false">10</string>
     <string name="current_speed">Current Speed:</string>
+    <string name="distance_travelled">Distance Travelled:</string>
+    <string name="reset">Reset</string>
+    <string name="km">km</string>
 </resources>

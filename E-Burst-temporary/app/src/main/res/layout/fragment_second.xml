@@ -135,6 +135,60 @@
             android:text="" />
 
         <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:textSize="@dimen/small_font_size">
+
+            <TextView
+                    android:id="@+id/distanceTraveled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/fab_margin"
+                    android:textSize="@dimen/small_font_size"
+                    android:text="@string/distance_travelled" />
+
+                <TextView
+                    android:id="@+id/textViewDistance"
+                    android:textSize="@dimen/small_font_size"
+                    style="@style/DistanceTravelled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/fab_margin"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:padding="5dp"
+                    android:text="16" />
+
+                <TextView
+                    android:id="@+id/textViewkmh"
+                    android:textSize="@dimen/small_font_size"
+                    style="@style/DistanceTravelled"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/fab_margin"
+                    android:layout_marginBottom="@dimen/fab_margin"
+                    android:layout_marginTop="@dimen/fab_margin"
+                    android:padding="5dp"
+                    android:text="@string/km" />
+
+                <Button
+                    android:id="@+id/resetDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:textSize="@dimen/small_font_size"
+                    style="@style/resetButton"
+                    android:layout_gravity="center"
+                    android:text="@string/reset"
+                    app:layout_constraintEnd_toStartOf="@+id/disconnectButton"
+                    app:layout_constraintHorizontal_chainStyle="spread_inside"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/languageTextView" />
+        </LinearLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
@@ -156,7 +210,8 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="@dimen/fab_margin"
-                android:layout_marginRight="@dimen/fab_margin"                android:layout_width="wrap_content"
+                android:layout_marginRight="@dimen/fab_margin"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
 

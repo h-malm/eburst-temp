@@ -3,6 +3,8 @@
     <style name="Base.Theme.EBurst" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your dark theme here. -->
 
+        <item name="android:textColor">@color/white</item>
+
         <!-- Action button background (somehow, both are needed) -->
         <item name="floatingActionButtonPrimaryStyle">@color/colorPrimaryLightBlue</item>
         <item name="colorAccent">@color/colorPrimaryLightBlue</item>
@@ -22,12 +24,12 @@
         <item name="colorOnPrimary">@color/lightGray</item>
 
 
-        <item name="cardViewStyle">@style/MyStyle.Cardview.Orange</item>
+        <item name="cardViewStyle">@style/cardBackground</item>
 
         <item name="android:statusBarColor">@color/darkerBlue</item>
     </style>
 
-    <style name="MyStyle.Cardview.Orange" parent="CardView">
+    <style name="cardBackground" parent="CardView">
         <item name="cardBackgroundColor">@color/colorSelectedBlue</item>
     </style>
 
@@ -38,4 +40,14 @@
     <style name="PowerView" parent="@android:style/TextAppearance.Small">
         <item name="android:background">@color/darkerBlue</item>
     </style>
+
+    <style name="DistanceTravelled" parent="@android:style/TextAppearance.Small">
+        <item name="android:background">@color/darkGray</item>
+    </style>
+
+    <style name="resetButton" parent="@android:style/TextAppearance.Small">
+        <item name="android:backgroundTint">@color/darkerBlue</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
 </resources>
