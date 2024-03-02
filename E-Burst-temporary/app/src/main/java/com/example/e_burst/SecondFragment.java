@@ -36,6 +36,8 @@ public class SecondFragment extends Fragment {
     private Set<BluetoothDevice> pairedDevices;
     private ListView mDevicesListView;
 
+    private TextView distance;
+
     private Spinner spinspin;
 
     @Override
@@ -75,6 +77,8 @@ public class SecondFragment extends Fragment {
         spinspin = binding.spinner;
         spinspin.setAdapter(adapter);
 
+        distance = binding.textViewDistance;
+        distance.setText(String.valueOf(btController.totalDistance/1000).substring(0,2));
         btController.mBluetoothStatus = binding.textView8;
 
         binding.homebutton.setOnClickListener(new View.OnClickListener() {
@@ -82,6 +86,14 @@ public class SecondFragment extends Fragment {
             public void onClick(View view) {
                 NavHostFragment.findNavController(SecondFragment.this)
                         .navigate(R.id.action_SecondFragment_to_FirstFragment);
+            }
+        });
+
+        binding.resetDistance.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btController.resetDistance();
+                distance.setText(String.valueOf(btController.totalDistance));
             }
         });
 

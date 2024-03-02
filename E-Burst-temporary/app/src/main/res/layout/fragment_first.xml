@@ -152,7 +152,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
             android:layout_margin="6dp"
-            android:text="@string/bluetooth_off"
+            android:text="@string/connect"
             android:textSize="@dimen/small_font_size"
 
             app:shapeAppearanceOverlay="@style/RoundedShapeAppearance" />

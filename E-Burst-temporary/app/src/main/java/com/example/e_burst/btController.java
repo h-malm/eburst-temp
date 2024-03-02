@@ -48,8 +48,16 @@ public class btController {
             public void handleMessage(Message msg) {
                 if (msg.what == MESSAGE_READ) {
                     String readMessage = null;
-                    readMessage = new String((byte[]) msg.obj, StandardCharsets.UTF_8);
-                    mBtRead.setText(readMessage);
+                    try {
+                        readMessage = new String((byte[]) msg.obj, StandardCharsets.UTF_8);
+                        readMessage.replaceAll("\\p{C}", "");
+                        readMessage = parseString(readMessage);
+
+                        calculateDistance(Double.parseDouble(readMessage),WHEELRADIUS);
+                        mBtRead.setText(calculateSpeed(Double.parseDouble(readMessage), WHEELRADIUS).substring(0,2));
+                    } catch (Exception e) {
+                        mBluetoothStatus.setText(e.toString());
+                    }
                 }
 
                 if (msg.what == CONNECTING_STATUS) {
@@ -124,6 +132,43 @@ public class btController {
         }
 
         return device.createRfcommSocketToServiceRecord(BT_MODULE_UUID);
+    }
+
+    private static final double PI = Math.PI;
+    private static final double WHEELRADIUS = 0.7112/2; //Wheel radius in meters
+    public static double totalDistance;
+
+
+
+    private static String calculateSpeed(double rotations, double wheelRadius) {
+        double kmph = 3.6;
+        double v = rotations * 2 * PI * wheelRadius * kmph;
+        return String.valueOf(v);
+    }
+
+    private static void calculateDistance(double rotations, double wheelRadius) {
+        double distance = 2 * PI * wheelRadius * rotations;
+        totalDistance += distance;
+    }
+
+    public static void resetDistance() {
+
+        totalDistance = 0;
+    }
+
+    public static String parseString(String input) {
+        int decimalIndex = input.indexOf('.');
+        if (decimalIndex != -1) { // If decimal point exists
+            // Get characters before decimal point
+            String beforeDecimal = input.substring(0, decimalIndex);
+
+            // Get one character after the decimal point
+            String afterDecimal = input.substring(decimalIndex, decimalIndex + 2);
+
+            return beforeDecimal + afterDecimal;
+        } else {
+            return input; // No decimal point found, return the original string
+        }
     }
 
     public static void btDisconnect(){
