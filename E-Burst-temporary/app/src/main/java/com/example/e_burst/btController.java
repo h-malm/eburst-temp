@@ -51,10 +51,12 @@ public class btController {
                     try {
                         readMessage = new String((byte[]) msg.obj, StandardCharsets.UTF_8);
                         readMessage.replaceAll("\\p{C}", "");
-                        readMessage = parseString(readMessage);
+                        readMessage = parseString(readMessage,2);
 
                         calculateDistance(Double.parseDouble(readMessage),WHEELRADIUS);
-                        mBtRead.setText(calculateSpeed(Double.parseDouble(readMessage), WHEELRADIUS).substring(0,2));
+
+                        String speed = calculateSpeed(Double.parseDouble(readMessage), WHEELRADIUS);
+                        mBtRead.setText(parseString(speed,0));
                     } catch (Exception e) {
                         mBluetoothStatus.setText(e.toString());
                     }
@@ -156,14 +158,14 @@ public class btController {
         totalDistance = 0;
     }
 
-    public static String parseString(String input) {
+    public static String parseString(String input, int decimals) {
         int decimalIndex = input.indexOf('.');
         if (decimalIndex != -1) { // If decimal point exists
             // Get characters before decimal point
             String beforeDecimal = input.substring(0, decimalIndex);
 
             // Get one character after the decimal point
-            String afterDecimal = input.substring(decimalIndex, decimalIndex + 2);
+            String afterDecimal = input.substring(decimalIndex, decimalIndex + decimals);
 
             return beforeDecimal + afterDecimal;
         } else {

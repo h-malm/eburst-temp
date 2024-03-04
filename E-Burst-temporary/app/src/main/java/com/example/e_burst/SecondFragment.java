@@ -93,7 +93,7 @@ public class SecondFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 btController.resetDistance();
-                distance.setText(String.valueOf(btController.totalDistance));
+                distance.setText(btController.parseString(String.valueOf(btController.totalDistance),2));
             }
         });
 
